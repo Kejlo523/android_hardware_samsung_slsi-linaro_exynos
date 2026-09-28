@@ -73,6 +73,9 @@ cc_library_shared {
 
     cflags: ["-DLOG_TAG=\"sbwcwrapper\""],
     name: "libsbwcwrapper",
+    // SBWC is not present on Exynos 7870.  Its modern wrapper depends on
+    // graphics modules outside the legacy BSP and is not part of this product.
+    enabled: false,
 
     proprietary: true,
 

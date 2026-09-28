@@ -17,6 +17,7 @@
 
 aidl_interface {
     name: "arm.graphics",
+    owner: "samsungexynos7870",
     host_supported: true,
     vendor: true,
     srcs: [

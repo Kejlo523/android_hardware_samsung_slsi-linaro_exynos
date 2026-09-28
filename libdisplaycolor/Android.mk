@@ -1,5 +1,9 @@
 LOCAL_PATH := $(call my-dir)
 
+# Exynos 7870 uses the legacy display stack and has no
+# libdisplaycolor_default implementation.
+ifneq ($(TARGET_BOARD_PLATFORM),universal7870)
+
 include $(CLEAR_VARS)
 
 LOCAL_CLFLAGS += -Wno-unused-function
@@ -19,3 +23,5 @@ LOCAL_MODULE_TAGS := optional
 LOCAL_PROPRIETARY_MODULE := true
 
 include $(BUILD_EXECUTABLE)
+
+endif

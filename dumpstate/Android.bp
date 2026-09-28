@@ -1,5 +1,8 @@
 cc_binary {
     name: "android.hardware.dumpstate@1.0-service.exynos",
+    // Optional legacy HIDL service; android.hardware.dumpstate@1.0 was
+    // removed from the Android 17 platform and a6lte does not use it.
+    enabled: false,
     init_rc: ["android.hardware.dumpstate@1.0-service.exynos.rc"],
     relative_install_path: "hw",
     vendor: true,

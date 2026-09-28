@@ -41,7 +41,7 @@ soong_config_module_type {
 
 soong_config_string_variable {
     name: "gralloc_version",
-    values: ["three", "four", "four_sgr"],
+    values: ["zero", "three", "four", "four_sgr"],
 }
 
 exynosgraphicbuffercore_cc_defaults {
@@ -61,6 +61,16 @@ exynosgraphicbuffercore_cc_defaults {
     ],
     soong_config_variables: {
         gralloc_version: {
+            zero: {
+                include_dirs: [
+                    "hardware/samsung_slsi-linaro/exynos/include",
+                    "system/memory/libion/kernel-headers",
+                ],
+
+                srcs: [
+                    "gralloc0/exynos_graphicbuffer_meta.cpp",
+                ],
+            },
             three: {
                 include_dirs: [
                     "hardware/samsung_slsi-linaro/exynos/include",
@@ -113,6 +123,11 @@ exynosgraphicbuffer_cc_defaults {
     ],
     soong_config_variables: {
         gralloc_version: {
+            zero: {
+                srcs: [
+                    "gralloc0/exynos_graphicbuffer_mapper.cpp",
+                ],
+            },
             three: {
                 srcs: [
                     "gralloc3/exynos_graphicbuffer_mapper.cpp",
